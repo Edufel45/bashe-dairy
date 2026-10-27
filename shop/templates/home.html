@@ -1,0 +1,60 @@
+{% load static %}<!DOCTYPE html>
+<html lang="{{ lang }}"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>{{ s.site_name }} | {{ s.l_hero_title }}</title>
+<meta name="description" content="{{ s.l_meta_description }}"><meta name="keywords" content="{{ s.l_meta_keywords }}">
+{% url 'home' as u_en %}{% url 'home_sw' as u_sw %}
+<link rel="canonical" href="{{ request.scheme }}://{{ request.get_host }}{% if lang == 'sw' %}{{ u_sw }}{% else %}{{ u_en }}{% endif %}">
+<link rel="alternate" hreflang="en" href="{{ request.scheme }}://{{ request.get_host }}{{ u_en }}"><link rel="alternate" hreflang="sw" href="{{ request.scheme }}://{{ request.get_host }}{{ u_sw }}"><link rel="alternate" hreflang="x-default" href="{{ request.scheme }}://{{ request.get_host }}{{ u_en }}">
+<meta property="og:type" content="website"><meta property="og:title" content="{{ s.site_name }} | {{ s.l_hero_title }}"><meta property="og:locale" content="{% if lang == 'sw' %}sw_TZ{% else %}en_TZ{% endif %}">
+<meta property="og:description" content="{{ s.l_meta_description }}">
+{% if s.og_image %}<meta property="og:image" content="{{ s.og_image.url }}">{% endif %}
+<meta name="twitter:card" content="summary_large_image"><meta name="theme-color" content="#14532d">
+<link rel="icon" href="{% static 'img/favicon.ico' %}" sizes="any"><link rel="icon" type="image/png" sizes="32x32" href="{% static 'img/favicon-32.png' %}"><link rel="apple-touch-icon" href="{% static 'img/apple-touch-icon.png' %}">
+<link rel="preconnect" href="https://images.unsplash.com"><link rel="preload" as="image" href="{{ hero }}" fetchpriority="high">
+<link rel="stylesheet" href="{% static 'css/site.css' %}">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"LocalBusiness","name":"{{ s.site_name|escapejs }}","description":"{{ s.l_meta_description|escapejs }}","telephone":"{{ s.phone }}","url":"{{ request.scheme }}://{{ request.get_host }}/","address":{"@type":"PostalAddress","addressCountry":"TZ","addressLocality":"{{ s.location|escapejs }}"}}</script>
+{% if s.google_tag_id %}<script async src="https://www.googletagmanager.com/gtag/js?id={{ s.google_tag_id }}"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','{{ s.google_tag_id }}');</script>{% endif %}
+</head><body>
+<div class="float">
+<a class="w" href="https://wa.me/{{ s.whatsapp }}?text={{ t.wa_gen|urlencode }}" target="_blank" rel="noopener" aria-label="WhatsApp"><svg width="32" height="32" fill="currentColor" viewBox="0 0 16 16"><path d="M13.601 2.326A7.854 7.854 0 0 0 8.002 0C3.58 0 0 3.58 0 8a7.94 7.94 0 0 0 1.146 4.106L0 16l4.025-1.122A7.944 7.944 0 0 0 8.002 16C12.42 16 16 12.42 16 8a7.94 7.94 0 0 0-2.399-5.674zM8.002 14.5a6.48 6.48 0 0 1-3.302-.902l-.236-.14-2.388.665.637-2.328-.154-.239A6.48 6.48 0 0 1 1.5 8c0-3.59 2.912-6.5 6.502-6.5a6.46 6.46 0 0 1 4.6 1.903A6.46 6.46 0 0 1 14.5 8c0 3.59-2.91 6.5-6.498 6.5zm3.63-4.867c-.198-.1-1.172-.578-1.354-.644-.181-.066-.313-.1-.445.1-.132.198-.511.644-.627.776-.115.132-.231.148-.429.05-.198-.1-.836-.308-1.592-.981-.588-.524-.985-1.172-1.1-1.37-.116-.198-.012-.305.087-.404.09-.09.198-.231.297-.347.099-.116.132-.198.198-.33.066-.132.033-.248-.017-.347-.05-.099-.445-1.074-.61-1.47-.161-.387-.325-.334-.445-.34l-.38-.007c-.132 0-.347.05-.528.248-.181.198-.693.677-.693 1.652 0 .974.71 1.916.809 2.048.099.132 1.397 2.134 3.386 2.992.473.204.842.326 1.13.417.475.151.907.13 1.249.079.381-.057 1.172-.479 1.337-.942.165-.462.165-.859.116-.942-.05-.083-.182-.132-.38-.231z"/></svg></a>
+<a class="c" href="tel:{{ s.phone }}" aria-label="Call"><svg width="32" height="32" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h2.28a1 1 0 01.948.684l1.2 3.6a1 1 0 01-.502 1.21l-1.7.85a11.042 11.042 0 005.657 5.657l.85-1.7a1 1 0 011.21-.502l3.6 1.2a1 1 0 01.684.948V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg></a></div>
+<nav><div class="wrap"><h1 style="display:flex;align-items:center;gap:.6rem"><img src="{% static 'img/logo.svg' %}" alt="{{ s.site_name }} logo" width="44" height="44">{{ s.site_name }}</h1>
+<div><a href="#home">{{ t.home }}</a><a href="#livestock">{{ t.livestock }}</a><a href="#about">{{ t.about }}</a><a href="#contact">{{ t.contact }}</a>
+<a class="lang" href="{% if lang == 'sw' %}{{ u_en }}{% else %}{{ u_sw }}{% endif %}" hreflang="{% if lang == 'sw' %}en{% else %}sw{% endif %}" title="{{ t.other_label }}">🌐 {{ t.other }}</a></div></div></nav>
+<section id="home" class="hero" style="background-image:url('{{ hero }}');padding:0"><div class="ov"><div class="wrap">
+<h2>{{ s.l_hero_title }}</h2><p>{{ s.l_hero_subtitle }}</p><a class="btn" href="#livestock">{{ t.browse }}</a></div></div></section>
+<section><div class="wrap grid g3">{% for f in features %}<div class="card"><h3>{{ f.l_title }}</h3><p>{{ f.l_text }}</p></div>{% endfor %}</div></section>
+<section id="livestock" class="alt"><div class="wrap">
+<div class="title"><h2>{{ t.avail }}</h2><p>{{ t.browse_sub }}</p></div>
+<div class="filters"><button class="fb active" data-f="all">{{ t.all }}</button>{% for c in cats %}<button class="fb" data-f="{{ c.slug }}">{{ c.l_name }}</button>{% endfor %}</div>
+<div class="grid products" id="grid">
+{% for p in products %}<article class="pc" data-c="{{ p.category.slug }}">
+{% with imgs=p.images.all %}{% if imgs %}<img class="main" src="{{ imgs.0.image.url }}" alt="{{ p.l_name }} - {{ s.site_name }}" {% if forloop.counter > 2 %}loading="lazy"{% endif %} width="900" height="288">
+<div class="thumbs">{% for i in imgs|slice:":4" %}<img src="{{ i.image.url }}" alt="{{ p.l_name }} {{ forloop.counter }}" loading="lazy" width="200" height="80">{% endfor %}</div>{% endif %}{% endwith %}
+<div class="pb"><span class="t">{{ p.category.l_name }}</span><h3>{{ p.l_name }}</h3>
+<div>{{ p.l_description|linebreaksbr }}</div>{% if p.weight %}<p><strong>{{ t.weight }}:</strong> {{ p.weight }}</p>{% endif %}
+<div class="f"><span class="price">{{ p.price }}</span><a class="btn g s" target="_blank" rel="noopener" href="https://wa.me/{{ s.whatsapp }}?text={{ p.wa|urlencode }}">{{ t.inquire }}</a></div></div></article>{% endfor %}
+</div></div></section>
+<section id="about"><div class="wrap"><div class="grid about">
+{% if s.about_image %}<img src="{{ s.about_image.url }}" alt="{{ s.l_about_title }}" loading="lazy" width="1000" height="450">{% endif %}
+<div><h2>{{ s.l_about_title }}</h2>{{ s.l_about_text|linebreaks }}</div></div>
+{% if s.show_info_box %}<div class="info"><h2>{{ s.site_name|upper }} {{ s.l_info_title }} ‼️</h2><p>{{ s.l_info_intro }}</p>
+{% for o in info %}<div class="i"><b>{{ o.l_title }}</b><p>{{ o.l_text }}</p>{% if o.l_note %}<p class="n">{{ t.note }}: {{ o.l_note }}</p>{% endif %}</div>{% endfor %}
+<p style="color:#4b5563;font-size:.875rem">{{ s.l_info_footer }}</p></div>{% endif %}</div></section>
+<section id="contact" class="alt"><div class="wrap"><div class="title"><h2>{{ t.contact_title }}</h2><p>{{ t.contact_sub }}</p></div>
+<form id="cf" onsubmit="return false" style="display:grid;gap:1.5rem">
+<input id="cn" type="text" placeholder="{{ t.name_ph }}"><input id="ce" type="email" placeholder="{{ t.email_ph }}"><textarea id="cm" rows="6" placeholder="{{ t.inquiry_ph }}"></textarea>
+<div><button type="button" class="btn g" id="cs">{{ t.send }}</button></div></form></div></section>
+<footer><div class="wrap"><h3>{{ s.site_name }}</h3><p>{{ s.l_tagline }}</p><p>© {% now "Y" %} {{ s.site_name }}. {{ t.rights }} {{ s.footer_text }}</p></div></footer>
+<div id="lb"><b>&times;</b><img alt=""></div>
+<script>
+var fb=document.querySelectorAll('.fb'),cards=document.querySelectorAll('.pc'),lb=document.getElementById('lb');
+fb.forEach(function(b){b.onclick=function(){fb.forEach(function(x){x.classList.remove('active')});b.classList.add('active');
+cards.forEach(function(c){c.style.display=(b.dataset.f=='all'||c.dataset.c==b.dataset.f)?'':'none'})}});
+document.getElementById('grid').onclick=function(e){if(e.target.tagName=='IMG'){lb.querySelector('img').src=e.target.src;lb.style.display='flex'}};
+lb.onclick=function(){lb.style.display='none'};
+document.getElementById('cs').onclick=function(){var m=document.getElementById('cm').value||"{{ t.wa_gen|escapejs }}",n=document.getElementById('cn').value,e=document.getElementById('ce').value;
+window.open('https://wa.me/{{ s.whatsapp }}?text='+encodeURIComponent(m+(n?'\n'+n:'')+(e?'\n'+e:'')),'_blank')};
+</script></body></html>
