@@ -46,3 +46,5 @@ footer{background:#052e16;color:#fff;padding:2.5rem 0;text-align:center}footer h
 #lb img{max-height:90%;max-width:90%;border-radius:1rem}#lb b{position:absolute;top:1.5rem;right:2rem;color:#fff;font-size:3.5rem;cursor:pointer}
 form input,form textarea{width:100%;border:1px solid #d1d5db;padding:1rem;border-radius:.75rem;font:inherit}
 nav .lang{border:1px solid #fff6;border-radius:.5rem;padding:.2rem .6rem;font-size:1rem}
+
+#livestock{padding-top:2rem}#livestock .title{margin-bottom:1.5rem}#livestock .filters{margin-bottom:1.5rem}
