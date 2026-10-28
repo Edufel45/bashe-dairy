@@ -8,12 +8,12 @@ UI = {
   avail="Available Livestock", browse_sub="Browse our premium livestock collection", all="All", inquire="Inquire",
   weight="Weight", contact_title="Contact Us", contact_sub="Send us your livestock inquiries", name_ph="Your Name",
   email_ph="Email Address", inquiry_ph="Your Inquiry", send="Send Inquiry on WhatsApp", rights="All rights reserved.",
-  note="NOTE", wa_prod="Hello {site}, I am interested in {p}.", wa_gen="Hello {site}, I am interested in your livestock and would like more details.", other="SW", other_label="Kiswahili"),
+  note="NOTE", wa_prod="Hello {site}, I am interested in {p}.", wa_gen="Hello {site}, I am interested in your livestock and would like more details.", other="KISW", other_label="Kiswahili"),
  "sw": dict(home="Nyumbani", livestock="Mifugo", about="Kuhusu Sisi", contact="Wasiliana Nasi", browse="Tazama Mifugo",
   avail="Mifugo Inayopatikana", browse_sub="Tazama mkusanyiko wetu wa mifugo bora", all="Yote", inquire="Uliza Bei",
   weight="Uzito", contact_title="Wasiliana Nasi", contact_sub="Tutumie maswali yako kuhusu mifugo", name_ph="Jina lako",
   email_ph="Barua pepe", inquiry_ph="Swali lako", send="Tuma Swali kupitia WhatsApp", rights="Haki zote zimehifadhiwa.",
-  note="TAHADHARI", wa_prod="Habari {site}, nimevutiwa na {p}.", wa_gen="Habari {site}, nimevutiwa na mifugo yenu na ningependa maelezo zaidi.", other="EN", other_label="English"),
+  note="TAHADHARI", wa_prod="Habari {site}, nimevutiwa na {p}.", wa_gen="Habari {site}, nimevutiwa na mifugo yenu na ningependa maelezo zaidi.", other="ENG", other_label="English"),
 }
 HERO = "https://images.unsplash.com/photo-1500595046743-cd271d694d30?auto=format&fit=crop&w=1600&q=70"
 

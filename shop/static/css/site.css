@@ -19,7 +19,7 @@ section{padding:5rem 0}.alt{background:#eeede7}
 .filters{display:flex;flex-wrap:wrap;justify-content:center;gap:1rem;margin-bottom:3rem}
 .fb{padding:10px 20px;border-radius:10px;background:#fff;font-weight:700;border:2px solid #166534;cursor:pointer;transition:.3s;font-size:1rem}
 .fb:hover,.fb.active{background:#166534;color:#fff}
-.products{grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:2.5rem}
+.products{grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:2.5rem}@media(max-width:640px){.products{grid-template-columns:repeat(2,1fr);gap:1rem}.products .card{padding:1rem}.products .card h3{font-size:1.1rem}.g3{grid-template-columns:repeat(3,1fr);gap:.5rem}.g3 .card{padding:.75rem}.g3 .card h3{font-size:.9rem}.g3 .card p{font-size:.75rem}}
 .pc{background:#fff;border-radius:1rem;overflow:hidden;box-shadow:0 20px 25px #0002;transition:.3s;display:flex;flex-direction:column}
 .pc:hover{transform:translateY(-5px)}
 .pc .main{height:18rem;width:100%;object-fit:cover;cursor:pointer}
